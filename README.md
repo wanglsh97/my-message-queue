@@ -1,10 +1,11 @@
 # My Message Queue
 
-这个仓库包含三个**彼此完全独立**的消息队列学习项目。根目录没有 `package.json`、Node.js 依赖、共享源码或统一 Docker Compose。
+这个仓库包含四个**彼此完全独立**的消息队列学习项目。根目录没有 `package.json`、Node.js 依赖、共享源码或统一 Docker Compose。
 
 ```text
 my-message-queue/
 ├── bullmq-demo/     # 只依赖 BullMQ + Redis
+├── nestjs-bullmq-demo/ # NestJS + BullMQ 6 最简集成
 ├── kafka-demo/      # 只依赖 KafkaJS + Kafka
 └── rabbitmq-demo/   # 只依赖 amqplib + RabbitMQ
 ```
@@ -25,6 +26,16 @@ npm install
 npm run infra:up
 npm run worker
 # 另开终端运行 npm run producer
+```
+
+## NestJS + BullMQ
+
+```bash
+cd nestjs-bullmq-demo
+npm install
+npm run infra:up
+npm run start:dev
+# 另开终端调用 POST http://localhost:3000/tasks
 ```
 
 ## Kafka
