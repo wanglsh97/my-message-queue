@@ -1,0 +1,24 @@
+{
+  "name": "kafka-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "infra:up": "docker compose up -d --wait",
+    "infra:status": "docker compose ps",
+    "infra:down": "docker compose down",
+    "producer": "tsx src/producer.ts",
+    "consumer": "tsx src/consumer.ts",
+    "check": "tsc --noEmit"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "kafkajs": "^2.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

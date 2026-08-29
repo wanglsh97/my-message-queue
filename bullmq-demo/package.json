@@ -1,0 +1,28 @@
+{
+  "name": "bullmq-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "infra:up": "docker compose up -d --wait",
+    "infra:status": "docker compose ps",
+    "infra:down": "docker compose down",
+    "producer": "tsx src/producer.ts",
+    "worker": "tsx src/worker.ts",
+    "clean": "tsx src/clean.ts",
+    "check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bullmq": "^6.3.2",
+    "dotenv": "^17.2.1",
+    "ioredis": "^5.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
