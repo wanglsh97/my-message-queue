@@ -1,16 +1,18 @@
 import amqp from "amqplib";
 import { config } from "./config.js";
 import { createTaskMessage } from "./message.js";
-import { declareTopology, topology as t } from "./topology.js";
+
+const MAIN_EXCHANGE = "rabbitmq-demo.events";
+const ROUTING_KEY = "task.created";
 
 const connection = await amqp.connect(config.rabbitmqUrl);
 const channel = await connection.createConfirmChannel();
-await declareTopology(channel);
+await channel.assertExchange(MAIN_EXCHANGE, "topic", { durable: true });
 
 try {
   for (let sequence = 1; sequence <= config.messageCount; sequence += 1) {
     const message = createTaskMessage(sequence, config.demoFailures && sequence === 3);
-    channel.publish(t.mainExchange, t.routingKey, Buffer.from(JSON.stringify(message)), {
+    channel.publish(MAIN_EXCHANGE, ROUTING_KEY, Buffer.from(JSON.stringify(message)), {
       persistent: true,
       contentType: "application/json",
       messageId: message.id,

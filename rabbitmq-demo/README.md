@@ -20,6 +20,6 @@ npm run consumer
 npm run producer
 ```
 
-管理台：[http://localhost:15672](http://localhost:15672)，账号和密码均为 `lab`。
+管理台：[http://localhost:15672](http://localhost:15672)，用户名为 `admin`，密码为 `123456`。
 
 将 `.env` 中的 `DEMO_FAILURES` 改成 `true`，第 3 条消息会经过三次延迟重试后进入 `rabbitmq-demo.tasks.dead`。使用 `npm run infra:down` 停止 RabbitMQ。

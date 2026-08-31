@@ -1,13 +1,14 @@
 # My Message Queue
 
-这个仓库包含四个**彼此完全独立**的消息队列学习项目。根目录没有 `package.json`、Node.js 依赖、共享源码或统一 Docker Compose。
+这个仓库包含五个**彼此完全独立**的消息队列学习项目。根目录没有 `package.json`、Node.js 依赖、共享源码或统一 Docker Compose。
 
 ```text
 my-message-queue/
 ├── bullmq-demo/     # 只依赖 BullMQ + Redis
 ├── nestjs-bullmq-demo/ # NestJS + BullMQ 6 最简集成
 ├── kafka-demo/      # 只依赖 KafkaJS + Kafka
-└── rabbitmq-demo/   # 只依赖 amqplib + RabbitMQ
+├── rabbitmq-demo/   # 只依赖 amqplib + RabbitMQ
+└── nestjs-rabbitmq-demo/ # NestJS Transport.RMQ + RabbitMQ
 ```
 
 ## 独立性约束
@@ -61,3 +62,14 @@ npm run consumer
 ```
 
 每个子项目的详细实验说明都在自己的 `README.md` 中。完成实验后，在对应子项目目录执行 `npm run infra:down`。
+
+## NestJS + RabbitMQ
+
+```bash
+cd nestjs-rabbitmq-demo
+npm install
+npm run infra:up
+npm run start:dev
+```
+
+完整的学习顺序、知识讲解、实验与面试题见根目录的 `RabbitMQ学习手册.md`。

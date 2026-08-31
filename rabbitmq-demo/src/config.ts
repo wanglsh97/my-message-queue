@@ -9,7 +9,7 @@ function positiveInteger(name: string, fallback: number): number {
 }
 
 export const config = {
-  rabbitmqUrl: process.env.RABBITMQ_URL ?? "amqp://lab:lab@localhost:5672",
+  rabbitmqUrl: process.env.RABBITMQ_URL ?? "amqp://admin:123456@localhost:5672",
   messageCount: positiveInteger("MESSAGE_COUNT", 5),
   prefetch: positiveInteger("PREFETCH_COUNT", 3),
   processingDelayMs: positiveInteger("PROCESSING_DELAY_MS", 500),
